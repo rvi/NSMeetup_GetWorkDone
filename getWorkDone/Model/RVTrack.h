@@ -1,34 +1,26 @@
 //
-//  RVRdio.h
+//  RVTrack.h
 //  getWorkDone
 //
 //  Created by Rémy on 30/03/13.
 //  Copyright (c) 2013 R√©my Virin. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
 
-#import <Rdio/Rdio.h>
-
-
-@interface RVRdioManager : NSObject
+@interface RVTrack : NSObject
 
 /**************************************************************************************************/
 #pragma mark - Getters & Setters
 
-@property (nonatomic, strong) Rdio *rdio;
+@property (nonatomic, strong) NSString *artistName;
+@property (nonatomic, strong) NSString *title;
 
 
 /**************************************************************************************************/
-#pragma mark - Singleton
+#pragma mark - Birth & Death
 
-+ (RVRdioManager *)sharedManager;
-
-/**************************************************************************************************/
-#pragma mark - get tracks
-
-- (void)getTracksWithDelegate:(id<RDAPIRequestDelegate>)delegate;
++ (RVTrack *)trackWithDictionnary:(NSDictionary *)json;
 
 
 @end

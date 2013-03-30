@@ -20,11 +20,7 @@
 {
     [super viewDidLoad];
 
-    Rdio *rdio = [[RVRdioManager sharedManager] rdio];
-    
-    [rdio  callAPIMethod:@"getTopCharts"
-          withParameters:@{@"type": @"track"}
-                delegate:self];
+    [[RVRdioManager sharedManager] getTracksWithDelegate:self];
     
 }
 

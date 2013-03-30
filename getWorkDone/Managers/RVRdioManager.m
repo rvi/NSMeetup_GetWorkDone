@@ -31,4 +31,14 @@
     return _singleton;
 }
 
+/**************************************************************************************************/
+#pragma mark - Get Tracks
+
+- (void)getTracksWithDelegate:(id<RDAPIRequestDelegate>)delegate
+{
+    [self.rdio callAPIMethod:@"getTopCharts"
+          withParameters:@{@"type": @"track"}
+                delegate:delegate];
+}
+
 @end

@@ -15,6 +15,7 @@
 		AD372E8E1707521B00D9AB38 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD372E8D1707521B00D9AB38 /* Security.framework */; };
 		AD372E921707535700D9AB38 /* RVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD372E911707535700D9AB38 /* RVViewController.m */; };
 		AD372E9A1707557D00D9AB38 /* RVRdioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD372E991707557D00D9AB38 /* RVRdioManager.m */; };
+		AD404CBB170757E000C6CF68 /* RVTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = AD404CBA170757E000C6CF68 /* RVTrack.m */; };
 		ADB044E51707510E00962758 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E41707510E00962758 /* UIKit.framework */; };
 		ADB044E71707510E00962758 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E61707510E00962758 /* Foundation.framework */; };
 		ADB044E91707510E00962758 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E81707510E00962758 /* CoreGraphics.framework */; };
@@ -54,6 +55,8 @@
 		AD372E911707535700D9AB38 /* RVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVViewController.m; sourceTree = "<group>"; };
 		AD372E981707557D00D9AB38 /* RVRdioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVRdioManager.h; sourceTree = "<group>"; };
 		AD372E991707557D00D9AB38 /* RVRdioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVRdioManager.m; sourceTree = "<group>"; };
+		AD404CB9170757E000C6CF68 /* RVTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVTrack.h; sourceTree = "<group>"; };
+		AD404CBA170757E000C6CF68 /* RVTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVTrack.m; sourceTree = "<group>"; };
 		ADB044E11707510E00962758 /* getWorkDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getWorkDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB044E41707510E00962758 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ADB044E61707510E00962758 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,6 +131,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		AD404CB8170757C200C6CF68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD404CB9170757E000C6CF68 /* RVTrack.h */,
+				AD404CBA170757E000C6CF68 /* RVTrack.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ADB044D81707510D00962758 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +180,7 @@
 		ADB044EA1707510E00962758 /* getWorkDone */ = {
 			isa = PBXGroup;
 			children = (
+				AD404CB8170757C200C6CF68 /* Model */,
 				ADB044F31707510E00962758 /* RVAppDelegate.h */,
 				ADB044F41707510E00962758 /* RVAppDelegate.m */,
 				AD372E971707555F00D9AB38 /* Managers */,
@@ -341,6 +354,7 @@
 				ADB044F51707510E00962758 /* RVAppDelegate.m in Sources */,
 				AD372E921707535700D9AB38 /* RVViewController.m in Sources */,
 				AD372E9A1707557D00D9AB38 /* RVRdioManager.m in Sources */,
+				AD404CBB170757E000C6CF68 /* RVTrack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
