@@ -41,6 +41,7 @@
 		AD404D01170799BE00C6CF68 /* GWDTitle_Layer-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CFF170799BE00C6CF68 /* GWDTitle_Layer-1@2x.png */; };
 		AD404D051707A1CF00C6CF68 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404D031707A1CF00C6CF68 /* Default-568h@2x.png */; };
 		AD404D0D1707A5EB00C6CF68 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404D0C1707A5EB00C6CF68 /* Default.png */; };
+		AD404D591707AB2F00C6CF68 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404D581707AB2F00C6CF68 /* Icon@2x.png */; };
 		ADB044E51707510E00962758 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E41707510E00962758 /* UIKit.framework */; };
 		ADB044E71707510E00962758 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E61707510E00962758 /* Foundation.framework */; };
 		ADB044E91707510E00962758 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E81707510E00962758 /* CoreGraphics.framework */; };
@@ -106,6 +107,7 @@
 		AD404CFF170799BE00C6CF68 /* GWDTitle_Layer-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GWDTitle_Layer-1@2x.png"; sourceTree = "<group>"; };
 		AD404D031707A1CF00C6CF68 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AD404D0C1707A5EB00C6CF68 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AD404D581707AB2F00C6CF68 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		ADB044E11707510E00962758 /* getWorkDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getWorkDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB044E41707510E00962758 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ADB044E61707510E00962758 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -198,6 +200,7 @@
 		AD404CC31707772B00C6CF68 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				AD404D581707AB2F00C6CF68 /* Icon@2x.png */,
 				AD404D0C1707A5EB00C6CF68 /* Default.png */,
 				AD404D031707A1CF00C6CF68 /* Default-568h@2x.png */,
 				AD404CFE170799BE00C6CF68 /* GWDTitle_Layer-1.png */,
@@ -275,13 +278,13 @@
 		ADB044EA1707510E00962758 /* getWorkDone */ = {
 			isa = PBXGroup;
 			children = (
-				AD404CE4170793C100C6CF68 /* Utils */,
-				AD404CBC17075AD300C6CF68 /* API */,
-				AD404CB8170757C200C6CF68 /* Model */,
 				ADB044F31707510E00962758 /* RVAppDelegate.h */,
 				ADB044F41707510E00962758 /* RVAppDelegate.m */,
+				AD404CBC17075AD300C6CF68 /* API */,
+				AD404CB8170757C200C6CF68 /* Model */,
 				AD372E971707555F00D9AB38 /* Managers */,
 				AD372E8F1707531900D9AB38 /* Controllers */,
+				AD404CE4170793C100C6CF68 /* Utils */,
 				ADB044EB1707510E00962758 /* Supporting Files */,
 			);
 			path = getWorkDone;
@@ -416,6 +419,7 @@
 				AD404D01170799BE00C6CF68 /* GWDTitle_Layer-1@2x.png in Resources */,
 				AD404D051707A1CF00C6CF68 /* Default-568h@2x.png in Resources */,
 				AD404D0D1707A5EB00C6CF68 /* Default.png in Resources */,
+				AD404D591707AB2F00C6CF68 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
