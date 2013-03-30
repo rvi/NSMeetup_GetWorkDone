@@ -37,7 +37,7 @@
 - (void)getTracksWithDelegate:(id<RDAPIRequestDelegate>)delegate
 {
     [self.rdio callAPIMethod:@"getTopCharts"
-          withParameters:@{@"type": @"track"}
+          withParameters:@{@"type": @"track", @"count":@"100"}
                 delegate:delegate];
 }
 
