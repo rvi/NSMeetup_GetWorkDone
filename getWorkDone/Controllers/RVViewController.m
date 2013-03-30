@@ -20,6 +20,8 @@
 // Utils
 #import "NSString+GetWorkDone.h"
 
+#import "UIImageView+AFNetworking.h"
+
 @interface RVViewController ()
 {
     RVTrack *currentlyPlayed;
@@ -44,8 +46,6 @@
         currentlyPlayed = inCurrentlyPlayed;
         
         [self updatePlayerandUI];
-
-        
     }
 }
 
@@ -65,9 +65,8 @@
     self.currentlyPlayed = nil;
     
     [[RVRdioManager sharedManager] getTracksWithDelegate:self];
-    RDPlayer *player = [[[RVRdioManager sharedManager] rdio] player];
-    [player setDelegate:self];
 
+    
     self.progressView.trackImage = [UIImage imageNamed:@"PlayScreen_progress-bar-base"];
     self.progressView.progressImage = [UIImage imageNamed:@"PlayScreen_progress-bar-orange"];
     
@@ -84,6 +83,9 @@
     self.artistLabel.text = [self.currentlyPlayed.artistName uppercaseString];
     self.titleLabel.text = [self.currentlyPlayed.title uppercaseString];
     self.currentTimeLabel.text = [NSString stringWithSecondsInString:0.0];
+    
+    NSURL *url = [NSURL URLWithString:self.currentlyPlayed.iconURL];
+    [self.jacketImageView setImageWithURL:url];
     
     [self.secondsTimer invalidate];
     self.secondsTimer = nil;
@@ -134,10 +136,6 @@
                                                            userInfo:nil
                                                             repeats:YES];
     }
-    
-    
-    
-    
 }
 
 - (IBAction)nextButtonTapped:(id)sender
@@ -163,31 +161,6 @@
 }
 
 /**************************************************************************************************/
-#pragma mark - RDPlayerDelegate
-
--(BOOL)rdioIsPlayingElsewhere
-{
-    return YES;
-}
-
-
--(void)rdioPlayerChangedFromState:(RDPlayerState)oldState toState:(RDPlayerState)newState
-{
-    
-//    RDPlayer *player = [[[RVRdioManager sharedManager] rdio] player];
-//    
-//    double duration = [player duration];
-//    self.songDurationlabel.text = [NSString stringWithSecondsInString:duration];
-//    
-//    double position = [player position];
-//    self.currentTimeLabel.text = [NSString stringWithSecondsInString:position];
-//    
-//    DLog(@"duration %@",[NSString stringWithSecondsInString:duration]);
-
-}
-
-
-/**************************************************************************************************/
 #pragma mark - Rdio Delegate
 
 - (void)rdioRequest:(RDAPIRequest *)request didLoadData:(id)data
@@ -199,6 +172,8 @@
             RVTrack *track = [RVTrack trackWithDictionnary:dict];
             [self.tracks addObject:track];
         }
+        
+            DLog(@"get %d tracks from Rdio",[self.tracks count]);
     }
     
     [RVEchonestAPI getMoreInfoForTracks:self.tracks

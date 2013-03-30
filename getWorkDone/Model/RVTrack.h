@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *trackID;
 @property (nonatomic, strong) NSString *artistName;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *iconURL;
 @property (nonatomic, assign) CGFloat bpm;
 @property (nonatomic, assign) CGFloat duration;
 

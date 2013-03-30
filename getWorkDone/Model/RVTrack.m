@@ -28,7 +28,7 @@
         result.trackID = [json objectForKey:@"key"];
         
         result.duration = [[json objectForKey:@"duration"] floatValue];
-        
+        result.iconURL = [json objectForKey:@"icon"];
     }
     
     return result;

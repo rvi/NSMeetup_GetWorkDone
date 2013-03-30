@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RVViewController : UIViewController <RDAPIRequestDelegate,RDPlayerDelegate>
+@interface RVViewController : UIViewController <RDAPIRequestDelegate>
 
 /**************************************************************************************************/
 #pragma mark - Getters & Setters
