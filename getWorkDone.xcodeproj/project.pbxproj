@@ -24,6 +24,10 @@
 		AD404CD7170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CD5170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png */; };
 		AD404CDA170786D700C6CF68 /* PlayScreen_progress-bar-base.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CD8170786D700C6CF68 /* PlayScreen_progress-bar-base.png */; };
 		AD404CDB170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CD9170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png */; };
+		AD404CE017078ADC00C6CF68 /* PlayScreen_Next.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CDC17078ADC00C6CF68 /* PlayScreen_Next.png */; };
+		AD404CE117078ADC00C6CF68 /* PlayScreen_Next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CDD17078ADC00C6CF68 /* PlayScreen_Next@2x.png */; };
+		AD404CE217078ADC00C6CF68 /* PlayScreen_Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CDE17078ADC00C6CF68 /* PlayScreen_Pause.png */; };
+		AD404CE317078ADC00C6CF68 /* PlayScreen_Pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CDF17078ADC00C6CF68 /* PlayScreen_Pause@2x.png */; };
 		ADB044E51707510E00962758 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E41707510E00962758 /* UIKit.framework */; };
 		ADB044E71707510E00962758 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E61707510E00962758 /* Foundation.framework */; };
 		ADB044E91707510E00962758 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E81707510E00962758 /* CoreGraphics.framework */; };
@@ -75,6 +79,10 @@
 		AD404CD5170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_progress-bar-orange@2x.png"; sourceTree = "<group>"; };
 		AD404CD8170786D700C6CF68 /* PlayScreen_progress-bar-base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_progress-bar-base.png"; sourceTree = "<group>"; };
 		AD404CD9170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_progress-bar-base@2x.png"; sourceTree = "<group>"; };
+		AD404CDC17078ADC00C6CF68 /* PlayScreen_Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayScreen_Next.png; sourceTree = "<group>"; };
+		AD404CDD17078ADC00C6CF68 /* PlayScreen_Next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_Next@2x.png"; sourceTree = "<group>"; };
+		AD404CDE17078ADC00C6CF68 /* PlayScreen_Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayScreen_Pause.png; sourceTree = "<group>"; };
+		AD404CDF17078ADC00C6CF68 /* PlayScreen_Pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_Pause@2x.png"; sourceTree = "<group>"; };
 		ADB044E11707510E00962758 /* getWorkDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getWorkDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB044E41707510E00962758 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ADB044E61707510E00962758 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +178,10 @@
 		AD404CC31707772B00C6CF68 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				AD404CDC17078ADC00C6CF68 /* PlayScreen_Next.png */,
+				AD404CDD17078ADC00C6CF68 /* PlayScreen_Next@2x.png */,
+				AD404CDE17078ADC00C6CF68 /* PlayScreen_Pause.png */,
+				AD404CDF17078ADC00C6CF68 /* PlayScreen_Pause@2x.png */,
 				AD404CD4170786C800C6CF68 /* PlayScreen_progress-bar-orange.png */,
 				AD404CD5170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png */,
 				AD404CD8170786D700C6CF68 /* PlayScreen_progress-bar-base.png */,
@@ -360,6 +372,10 @@
 				AD404CD7170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png in Resources */,
 				AD404CDA170786D700C6CF68 /* PlayScreen_progress-bar-base.png in Resources */,
 				AD404CDB170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png in Resources */,
+				AD404CE017078ADC00C6CF68 /* PlayScreen_Next.png in Resources */,
+				AD404CE117078ADC00C6CF68 /* PlayScreen_Next@2x.png in Resources */,
+				AD404CE217078ADC00C6CF68 /* PlayScreen_Pause.png in Resources */,
+				AD404CE317078ADC00C6CF68 /* PlayScreen_Pause@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

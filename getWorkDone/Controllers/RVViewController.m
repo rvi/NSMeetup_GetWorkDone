@@ -81,6 +81,8 @@
     RDPlayer *player = [[[RVRdioManager sharedManager] rdio] player];
     [player playSource:self.currentlyPlayed.trackID];
  
+    self.artistLabel.text = [self.currentlyPlayed.artistName uppercaseString];
+    self.titleLabel.text = [self.currentlyPlayed.title uppercaseString];
     self.currentTimeLabel.text = [NSString stringWithSecondsInString:0.0];
     
     [self.secondsTimer invalidate];
