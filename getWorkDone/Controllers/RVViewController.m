@@ -84,8 +84,13 @@
     self.currentTimeLabel.text = [NSString stringWithSecondsInString:0.0];
     
     [self.secondsTimer invalidate];
+    self.secondsTimer = nil;
     self.currentSeconds = 0.0f;
     self.progressView.progress = 0.0;
+    
+    // We're in play mode, not in Pause
+    [self.playButton setSelected:NO];
+    
     self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(refreshUITimer:) userInfo:nil repeats:YES];
     
     self.songDurationlabel.text = [NSString stringWithSecondsInString:self.currentlyPlayed.duration];
@@ -93,11 +98,14 @@
 
 - (void)refreshUITimer:(id)sender
 {
-    self.currentSeconds++;
-    
-    self.currentTimeLabel.text =  [NSString stringWithSecondsInString:self.currentSeconds];
-    
-    self.progressView.progress =  self.currentSeconds / self.currentlyPlayed.duration;
+    if ([self.secondsTimer isValid])
+    {
+        self.currentSeconds++;
+        
+        self.currentTimeLabel.text =  [NSString stringWithSecondsInString:self.currentSeconds];
+        
+        self.progressView.progress =  self.currentSeconds / self.currentlyPlayed.duration;
+    }
 }
 
 /**************************************************************************************************/
@@ -106,6 +114,28 @@
 - (IBAction)playButtonTapped:(id)sender
 {
     [[[[RVRdioManager sharedManager] rdio] player] togglePause];
+
+    // Selected style is on PAUSE
+    BOOL isOnPause = [self.playButton isSelected];
+    
+    [self.playButton setSelected:!isOnPause];
+    
+    if(!isOnPause)
+    {
+        [self.secondsTimer invalidate];
+        self.secondsTimer = nil;
+    }
+    else
+    {
+        self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self
+                                                           selector:@selector(refreshUITimer:)
+                                                           userInfo:nil
+                                                            repeats:YES];
+    }
+    
+    
+    
+    
 }
 
 - (IBAction)nextButtonTapped:(id)sender
