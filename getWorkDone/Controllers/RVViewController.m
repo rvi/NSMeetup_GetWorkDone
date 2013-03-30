@@ -90,8 +90,7 @@
     self.titleLabel.text = [self.currentlyPlayed.title uppercaseString];
     self.currentTimeLabel.text = [NSString stringWithSecondsInString:0.0];
     
-    NSURL *url = [NSURL URLWithString:self.currentlyPlayed.iconURL];
-    [self.jacketImageView setImageWithURL:url];
+    [self changeJacketImage];
     
     [self.secondsTimer invalidate];
     self.secondsTimer = nil;
@@ -107,6 +106,26 @@
                                                         repeats:YES];
     
     self.songDurationlabel.text = [NSString stringWithSecondsInString:self.currentlyPlayed.duration];
+}
+
+- (void)changeJacketImage
+{
+    NSURL *url = [NSURL URLWithString:self.currentlyPlayed.iconURL];
+    
+    
+    UIImageView *newJacketImageView = [[UIImageView alloc] initWithFrame:self.jacketImageView.frame];
+    [newJacketImageView setImageWithURL:url];
+    [self.view insertSubview:newJacketImageView belowSubview:self.jacketImageView];
+    
+    UIViewAnimationOptions option =  self.fasterButton.selected ? UIViewAnimationOptionTransitionFlipFromRight : UIViewAnimationOptionTransitionFlipFromLeft;
+    
+    [UIView transitionFromView:self.jacketImageView
+                        toView:newJacketImageView
+                      duration:0.3
+                       options:option
+                    completion:^(BOOL finished) {
+                        self.jacketImageView = newJacketImageView;
+                    }];
 }
 
 - (void)refreshUITimer:(id)sender
@@ -140,7 +159,8 @@
     }
     else
     {
-        self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self
+        self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                             target:self
                                                            selector:@selector(refreshUITimer:)
                                                            userInfo:nil
                                                             repeats:YES];
@@ -217,10 +237,7 @@
                                
                                   NSArray *sortedTracks = [RVTrack sortTracksByBPMForArray:self.tracks];
                                   self.tracks = [NSMutableArray arrayWithArray:sortedTracks];
-                                  
-                                  DLog(@"--------------------------------------------");
-                                  DLog(@"\n\n\n tracks : %@",self.tracks);
-                                  
+                        
                                   if (!self.currentlyPlayed && self.tracks.count > 1)
                                   {
                                       

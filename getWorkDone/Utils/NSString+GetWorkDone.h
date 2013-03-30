@@ -11,4 +11,5 @@
 @interface NSString (GetWorkDone)
 
 +(NSString *)stringWithSecondsInString:(double)seconds;
+
 @end
