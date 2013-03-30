@@ -32,7 +32,8 @@
     return result;
 }
 
-
+/**************************************************************************************************/
+#pragma mark - Description
 
 -(NSString *)description
 {
@@ -43,5 +44,19 @@
 }
 
 
+
+/**************************************************************************************************/
+#pragma mark - Sorting
+
++ (NSArray *)sortTracksByBPMForArray:(NSArray *)arrayToSort
+{
+    NSArray *sortedArray;
+    sortedArray = [arrayToSort sortedArrayUsingComparator:^NSComparisonResult(RVTrack *first, RVTrack *second)
+                   {
+                       return first.bpm > second.bpm;
+                   }];
+    
+    return sortedArray;
+}
 
 @end

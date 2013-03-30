@@ -18,26 +18,48 @@
 #import "RVEchonestAPI.h"
 
 @interface RVViewController ()
+{
+    RVTrack *currentlyPlayed;
+}
 
 @property (nonatomic, strong) NSMutableArray *tracks;
+@property (nonatomic, strong) RVTrack *currentlyPlayed;
 
 @end
 
 @implementation RVViewController
+
+/**************************************************************************************************/
+#pragma mark - Getters & Setters
+
+-(void)setCurrentlyPlayed:(RVTrack *)inCurrentlyPlayed
+{
+    if (currentlyPlayed != inCurrentlyPlayed)
+    {
+        currentlyPlayed = inCurrentlyPlayed;
+        
+        // Play song :
+        [[[[RVRdioManager sharedManager] rdio] player] playSource:currentlyPlayed.trackID];
+
+    }
+}
+
+-(RVTrack *)currentlyPlayed
+{
+    return currentlyPlayed;
+}
+
+/**************************************************************************************************/
+#pragma mark - View Management
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     self.tracks = [NSMutableArray array];
+    self.currentlyPlayed = nil;
     [[RVRdioManager sharedManager] getTracksWithDelegate:self];
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -59,19 +81,29 @@
     [RVEchonestAPI getMoreInfoForTracks:self.tracks
                               succeeded:^(RVTrack *track) {
                                   
-                                  DLog(@"track : %@",track);
+                               
+                                  NSArray *sortedTracks = [RVTrack sortTracksByBPMForArray:self.tracks];
+                                  self.tracks = [NSMutableArray arrayWithArray:sortedTracks];
+                                  
+                                  DLog(@"--------------------------------------------");
+                                  DLog(@"\n\n\n tracks : %@",self.tracks);
+                                  
+                                  if (!self.currentlyPlayed && self.tracks.count > 1)
+                                  {
+                                      
+                                      self.currentlyPlayed = [self.tracks objectAtIndex:self.tracks.count/2];
+                                  }
                                   
                               }
                                  failed:^(RVTrack *track, NSError *error) {
                                      
-                                     //DLog(@"remove track : %@",track);
                                      [self.tracks removeObject:track];
                                  }];
 }
 
 - (void)rdioRequest:(RDAPIRequest *)request didFailWithError:(NSError *)error
 {
-    
+    DLog(@"failure for request : %@ with error : %@",request,error);
 }
 
 

@@ -25,4 +25,9 @@
 + (RVTrack *)trackWithDictionnary:(NSDictionary *)json;
 
 
+/**************************************************************************************************/
+#pragma mark - Sorting
+
++ (NSArray *)sortTracksByBPMForArray:(NSArray *)arrayToSort;
+
 @end
