@@ -12,11 +12,18 @@
 
 +(NSString *)stringWithSecondsInString:(double)secs
 {
-    int seconds = (int)secs;
+    NSString *result = nil;
     
-    div_t result = div(seconds, 60);
-    
-    return [NSString stringWithFormat:@"%d:%.2d",result.quot,result.rem];
+    if (secs >= 0)
+    {
+        int seconds = (int)secs;
+        
+        div_t divResult = div(seconds, 60);
+        
+        result = [NSString stringWithFormat:@"%d:%.2d",divResult.quot,divResult.rem];
+    }
+
+    return result;
 }
 
 

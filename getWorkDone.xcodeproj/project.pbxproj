@@ -42,6 +42,8 @@
 		AD404D051707A1CF00C6CF68 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404D031707A1CF00C6CF68 /* Default-568h@2x.png */; };
 		AD404D0D1707A5EB00C6CF68 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404D0C1707A5EB00C6CF68 /* Default.png */; };
 		AD404D591707AB2F00C6CF68 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404D581707AB2F00C6CF68 /* Icon@2x.png */; };
+		AD404D5E1707AC9300C6CF68 /* NSStringAdditionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD404D5D1707AC9300C6CF68 /* NSStringAdditionTest.m */; };
+		AD404D5F1707AD6500C6CF68 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD372E85170751E100D9AB38 /* Rdio.framework */; };
 		ADB044E51707510E00962758 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E41707510E00962758 /* UIKit.framework */; };
 		ADB044E71707510E00962758 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E61707510E00962758 /* Foundation.framework */; };
 		ADB044E91707510E00962758 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E81707510E00962758 /* CoreGraphics.framework */; };
@@ -108,6 +110,8 @@
 		AD404D031707A1CF00C6CF68 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AD404D0C1707A5EB00C6CF68 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AD404D581707AB2F00C6CF68 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		AD404D5C1707AC9300C6CF68 /* NSStringAdditionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditionTest.h; sourceTree = "<group>"; };
+		AD404D5D1707AC9300C6CF68 /* NSStringAdditionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditionTest.m; sourceTree = "<group>"; };
 		ADB044E11707510E00962758 /* getWorkDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getWorkDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB044E41707510E00962758 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ADB044E61707510E00962758 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,6 +157,7 @@
 				ADB0450C1707510E00962758 /* SenTestingKit.framework in Frameworks */,
 				ADB0450D1707510E00962758 /* UIKit.framework in Frameworks */,
 				ADB0450E1707510E00962758 /* Foundation.framework in Frameworks */,
+				AD404D5F1707AD6500C6CF68 /* Rdio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +309,8 @@
 		ADB045111707510E00962758 /* getWorkDoneTests */ = {
 			isa = PBXGroup;
 			children = (
+				AD404D5C1707AC9300C6CF68 /* NSStringAdditionTest.h */,
+				AD404D5D1707AC9300C6CF68 /* NSStringAdditionTest.m */,
 				ADB045171707510E00962758 /* getWorkDoneTests.h */,
 				ADB045181707510E00962758 /* getWorkDoneTests.m */,
 				ADB045121707510E00962758 /* Supporting Files */,
@@ -483,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB045191707510E00962758 /* getWorkDoneTests.m in Sources */,
+				AD404D5E1707AC9300C6CF68 /* NSStringAdditionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +655,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../../Downloads/rdio-ios-1.1\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "getWorkDone/getWorkDone-Prefix.pch";
@@ -664,6 +673,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/../../Downloads/rdio-ios-1.1\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "getWorkDone/getWorkDone-Prefix.pch";
