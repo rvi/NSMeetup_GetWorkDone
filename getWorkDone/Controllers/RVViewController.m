@@ -8,9 +8,15 @@
 
 #import "RVViewController.h"
 
+// Managers
 #import "RVRdioManager.h"
 
+// Model
+#import "RVTrack.h"
+
 @interface RVViewController ()
+
+@property (nonatomic, strong) NSArray *tracks;
 
 @end
 
@@ -36,7 +42,18 @@
 
 - (void)rdioRequest:(RDAPIRequest *)request didLoadData:(id)data
 {
+    NSMutableArray *tmpTracks = [NSMutableArray array];
+    if ([data isKindOfClass:[NSArray class]])
+    {
+        for (NSDictionary *dict in data)
+        {
+            RVTrack *track = [RVTrack trackWithDictionnary:dict];
+            [tmpTracks addObject:track];
+            
+        }
+    }
     
+    self.tracks = [NSArray arrayWithArray:tmpTracks];
 }
 
 - (void)rdioRequest:(RDAPIRequest *)request didFailWithError:(NSError *)error
