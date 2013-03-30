@@ -115,7 +115,6 @@
     
     UIImageView *newJacketImageView = [[UIImageView alloc] initWithFrame:self.jacketImageView.frame];
     [newJacketImageView setImageWithURL:url];
-    [self.view insertSubview:newJacketImageView belowSubview:self.jacketImageView];
     
     UIViewAnimationOptions option =  self.fasterButton.selected ? UIViewAnimationOptionTransitionFlipFromRight : UIViewAnimationOptionTransitionFlipFromLeft;
     
