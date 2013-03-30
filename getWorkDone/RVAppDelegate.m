@@ -10,12 +10,19 @@
 
 #import "RVViewController.h"
 
+#import "RVRdioManager.h"
+
+
 @implementation RVAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // allocate Rdio instance
+    [RVRdioManager sharedManager];
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.viewController = [[RVViewController alloc] initWithNibName:@"RVViewController_iPhone" bundle:nil];
     } else {
