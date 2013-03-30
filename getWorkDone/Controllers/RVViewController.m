@@ -22,10 +22,16 @@
 
 #import "UIImageView+AFNetworking.h"
 
+/**************************************************************************************************/
+#pragma mark - private 
+
 @interface RVViewController ()
 {
     RVTrack *currentlyPlayed;
 }
+
+/**************************************************************************************************/
+#pragma mark - Getters & Setters
 
 @property (nonatomic, strong) NSMutableArray *tracks;
 @property (nonatomic, strong) RVTrack *currentlyPlayed;
@@ -95,7 +101,10 @@
     // We're in play mode, not in Pause
     [self.playButton setSelected:NO];
     
-    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(refreshUITimer:) userInfo:nil repeats:YES];
+    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self
+                                                       selector:@selector(refreshUITimer:)
+                                                       userInfo:nil
+                                                        repeats:YES];
     
     self.songDurationlabel.text = [NSString stringWithSecondsInString:self.currentlyPlayed.duration];
 }
@@ -143,7 +152,7 @@
     NSUInteger currentIndex = [self.tracks indexOfObject:self.currentlyPlayed];
     
     // If last song, then restart from the first one.
-    if(currentIndex == self.tracks.count - 1)
+    if(currentIndex == self.tracks.count - 1 || currentIndex >= self.tracks.count)
     {
         currentIndex = 0;
     }
@@ -158,6 +167,32 @@
         self.currentlyPlayed = nextTrack;
     }
     
+}
+
+- (IBAction)fastTapped:(id)sender
+{
+    [self changeBPMToFaster:NO];
+}
+
+- (IBAction)fasterTapped:(id)sender
+{
+    [self changeBPMToFaster:YES];
+}
+
+- (void)changeBPMToFaster:(BOOL)shouldBeFaster
+{
+    self.fastButton.selected = !shouldBeFaster;
+    self.fasterButton.selected = shouldBeFaster;
+    
+    NSInteger currentIndex = [self.tracks indexOfObject:self.currentlyPlayed];
+    currentIndex += shouldBeFaster ? 1 : -1;
+    
+    if (currentIndex < 0 || currentIndex >= self.tracks.count)
+    {
+        currentIndex = self.tracks.count / 2;
+    }
+    
+    self.currentlyPlayed = [self.tracks objectAtIndex:currentIndex];
 }
 
 /**************************************************************************************************/

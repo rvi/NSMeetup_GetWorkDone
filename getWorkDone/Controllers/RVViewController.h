@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *jacketImageView;
+@property (weak, nonatomic) IBOutlet UIButton *fasterButton;
+@property (weak, nonatomic) IBOutlet UIButton *fastButton;
 
 /**************************************************************************************************/
 #pragma mark - Actions
@@ -27,5 +29,7 @@
 - (IBAction)playButtonTapped:(id)sender;
 
 - (IBAction)nextButtonTapped:(id)sender;
+- (IBAction)fastTapped:(id)sender;
+- (IBAction)fasterTapped:(id)sender;
 
 @end
