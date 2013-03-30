@@ -14,9 +14,12 @@
 // Model
 #import "RVTrack.h"
 
+// API
+#import "RVEchonestAPI.h"
+
 @interface RVViewController ()
 
-@property (nonatomic, strong) NSArray *tracks;
+@property (nonatomic, strong) NSMutableArray *tracks;
 
 @end
 
@@ -26,6 +29,7 @@
 {
     [super viewDidLoad];
 
+    self.tracks = [NSMutableArray array];
     [[RVRdioManager sharedManager] getTracksWithDelegate:self];
     
 }
@@ -42,18 +46,27 @@
 
 - (void)rdioRequest:(RDAPIRequest *)request didLoadData:(id)data
 {
-    NSMutableArray *tmpTracks = [NSMutableArray array];
     if ([data isKindOfClass:[NSArray class]])
     {
         for (NSDictionary *dict in data)
         {
             RVTrack *track = [RVTrack trackWithDictionnary:dict];
-            [tmpTracks addObject:track];
+            [self.tracks addObject:track];
             
         }
     }
     
-    self.tracks = [NSArray arrayWithArray:tmpTracks];
+    [RVEchonestAPI getMoreInfoForTracks:self.tracks
+                              succeeded:^(RVTrack *track) {
+                                  
+                                  DLog(@"track : %@",track);
+                                  
+                              }
+                                 failed:^(RVTrack *track, NSError *error) {
+                                     
+                                     //DLog(@"remove track : %@",track);
+                                     [self.tracks removeObject:track];
+                                 }];
 }
 
 - (void)rdioRequest:(RDAPIRequest *)request didFailWithError:(NSError *)error

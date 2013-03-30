@@ -13,8 +13,10 @@
 /**************************************************************************************************/
 #pragma mark - Getters & Setters
 
+@property (nonatomic, strong) NSString *trackID;
 @property (nonatomic, strong) NSString *artistName;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, assign) CGFloat bpm;
 
 
 /**************************************************************************************************/
