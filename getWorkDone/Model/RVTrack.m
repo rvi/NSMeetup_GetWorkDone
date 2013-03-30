@@ -27,6 +27,8 @@
         result.title = [json objectForKey:@"name"];
         result.trackID = [json objectForKey:@"key"];
         
+        result.duration = [[json objectForKey:@"duration"] floatValue];
+        
     }
     
     return result;

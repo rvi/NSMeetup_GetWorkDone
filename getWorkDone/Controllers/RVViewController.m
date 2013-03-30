@@ -17,6 +17,9 @@
 // API
 #import "RVEchonestAPI.h"
 
+// Utils
+#import "NSString+GetWorkDone.h"
+
 @interface RVViewController ()
 {
     RVTrack *currentlyPlayed;
@@ -24,6 +27,8 @@
 
 @property (nonatomic, strong) NSMutableArray *tracks;
 @property (nonatomic, strong) RVTrack *currentlyPlayed;
+@property (nonatomic, strong) NSTimer *secondsTimer;
+@property (nonatomic, assign) CGFloat currentSeconds;
 
 @end
 
@@ -38,9 +43,9 @@
     {
         currentlyPlayed = inCurrentlyPlayed;
         
-        // Play song :
-        [[[[RVRdioManager sharedManager] rdio] player] playSource:currentlyPlayed.trackID];
+        [self updatePlayerandUI];
 
+        
     }
 }
 
@@ -58,8 +63,95 @@
 
     self.tracks = [NSMutableArray array];
     self.currentlyPlayed = nil;
-    [[RVRdioManager sharedManager] getTracksWithDelegate:self];
     
+    [[RVRdioManager sharedManager] getTracksWithDelegate:self];
+    RDPlayer *player = [[[RVRdioManager sharedManager] rdio] player];
+    [player setDelegate:self];
+
+    self.progressView.trackImage = [UIImage imageNamed:@"PlayScreen_progress-bar-base"];
+    self.progressView.progressImage = [UIImage imageNamed:@"PlayScreen_progress-bar-orange"];
+    
+}
+
+/**************************************************************************************************/
+#pragma mark - UI
+
+- (void)updatePlayerandUI
+{
+    RDPlayer *player = [[[RVRdioManager sharedManager] rdio] player];
+    [player playSource:self.currentlyPlayed.trackID];
+ 
+    self.currentTimeLabel.text = [NSString stringWithSecondsInString:0.0];
+    
+    [self.secondsTimer invalidate];
+    self.currentSeconds = 0.0f;
+    self.progressView.progress = 0.0;
+    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(refreshUITimer:) userInfo:nil repeats:YES];
+    
+    self.songDurationlabel.text = [NSString stringWithSecondsInString:self.currentlyPlayed.duration];
+}
+
+- (void)refreshUITimer:(id)sender
+{
+    self.currentSeconds++;
+    
+    self.currentTimeLabel.text =  [NSString stringWithSecondsInString:self.currentSeconds];
+    
+    self.progressView.progress =  self.currentSeconds / self.currentlyPlayed.duration;
+}
+
+/**************************************************************************************************/
+#pragma mark - Actions
+
+- (IBAction)playButtonTapped:(id)sender
+{
+    [[[[RVRdioManager sharedManager] rdio] player] togglePause];
+}
+
+- (IBAction)nextButtonTapped:(id)sender
+{
+    NSUInteger currentIndex = [self.tracks indexOfObject:self.currentlyPlayed];
+    
+    // If last song, then restart from the first one.
+    if(currentIndex == self.tracks.count - 1)
+    {
+        currentIndex = 0;
+    }
+    else
+    {
+        currentIndex++;
+    }
+    
+    if (currentIndex < self.tracks.count)
+    {
+        RVTrack *nextTrack = [self.tracks objectAtIndex:currentIndex];
+        self.currentlyPlayed = nextTrack;
+    }
+    
+}
+
+/**************************************************************************************************/
+#pragma mark - RDPlayerDelegate
+
+-(BOOL)rdioIsPlayingElsewhere
+{
+    return YES;
+}
+
+
+-(void)rdioPlayerChangedFromState:(RDPlayerState)oldState toState:(RDPlayerState)newState
+{
+    
+//    RDPlayer *player = [[[RVRdioManager sharedManager] rdio] player];
+//    
+//    double duration = [player duration];
+//    self.songDurationlabel.text = [NSString stringWithSecondsInString:duration];
+//    
+//    double position = [player position];
+//    self.currentTimeLabel.text = [NSString stringWithSecondsInString:position];
+//    
+//    DLog(@"duration %@",[NSString stringWithSecondsInString:duration]);
+
 }
 
 
@@ -74,7 +166,6 @@
         {
             RVTrack *track = [RVTrack trackWithDictionnary:dict];
             [self.tracks addObject:track];
-            
         }
     }
     
@@ -98,6 +189,10 @@
                                  failed:^(RVTrack *track, NSError *error) {
                                      
                                      [self.tracks removeObject:track];
+                                     
+                                     NSArray *sortedTracks = [RVTrack sortTracksByBPMForArray:self.tracks];
+                                     self.tracks = [NSMutableArray arrayWithArray:sortedTracks];
+
                                  }];
 }
 
@@ -105,6 +200,5 @@
 {
     DLog(@"failure for request : %@ with error : %@",request,error);
 }
-
 
 @end

@@ -17,6 +17,13 @@
 		AD372E9A1707557D00D9AB38 /* RVRdioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD372E991707557D00D9AB38 /* RVRdioManager.m */; };
 		AD404CBB170757E000C6CF68 /* RVTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = AD404CBA170757E000C6CF68 /* RVTrack.m */; };
 		AD404CBF17075B3700C6CF68 /* RVEchonestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AD404CBE17075B3700C6CF68 /* RVEchonestAPI.m */; };
+		AD404CCE1707786C00C6CF68 /* PlayScreen_menu-background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CCC1707786C00C6CF68 /* PlayScreen_menu-background.png */; };
+		AD404CCF1707786C00C6CF68 /* PlayScreen_menu-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CCD1707786C00C6CF68 /* PlayScreen_menu-background@2x.png */; };
+		AD404CD317077D6600C6CF68 /* NSString+GetWorkDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AD404CD217077D6600C6CF68 /* NSString+GetWorkDone.m */; };
+		AD404CD6170786C800C6CF68 /* PlayScreen_progress-bar-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CD4170786C800C6CF68 /* PlayScreen_progress-bar-orange.png */; };
+		AD404CD7170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CD5170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png */; };
+		AD404CDA170786D700C6CF68 /* PlayScreen_progress-bar-base.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CD8170786D700C6CF68 /* PlayScreen_progress-bar-base.png */; };
+		AD404CDB170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD404CD9170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png */; };
 		ADB044E51707510E00962758 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E41707510E00962758 /* UIKit.framework */; };
 		ADB044E71707510E00962758 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E61707510E00962758 /* Foundation.framework */; };
 		ADB044E91707510E00962758 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB044E81707510E00962758 /* CoreGraphics.framework */; };
@@ -60,6 +67,14 @@
 		AD404CBA170757E000C6CF68 /* RVTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVTrack.m; sourceTree = "<group>"; };
 		AD404CBD17075B3700C6CF68 /* RVEchonestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVEchonestAPI.h; sourceTree = "<group>"; };
 		AD404CBE17075B3700C6CF68 /* RVEchonestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVEchonestAPI.m; sourceTree = "<group>"; };
+		AD404CCC1707786C00C6CF68 /* PlayScreen_menu-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_menu-background.png"; sourceTree = "<group>"; };
+		AD404CCD1707786C00C6CF68 /* PlayScreen_menu-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_menu-background@2x.png"; sourceTree = "<group>"; };
+		AD404CD117077D6600C6CF68 /* NSString+GetWorkDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GetWorkDone.h"; sourceTree = "<group>"; };
+		AD404CD217077D6600C6CF68 /* NSString+GetWorkDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GetWorkDone.m"; sourceTree = "<group>"; };
+		AD404CD4170786C800C6CF68 /* PlayScreen_progress-bar-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_progress-bar-orange.png"; sourceTree = "<group>"; };
+		AD404CD5170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_progress-bar-orange@2x.png"; sourceTree = "<group>"; };
+		AD404CD8170786D700C6CF68 /* PlayScreen_progress-bar-base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_progress-bar-base.png"; sourceTree = "<group>"; };
+		AD404CD9170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayScreen_progress-bar-base@2x.png"; sourceTree = "<group>"; };
 		ADB044E11707510E00962758 /* getWorkDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getWorkDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB044E41707510E00962758 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ADB044E61707510E00962758 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,9 +167,33 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		AD404CC31707772B00C6CF68 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				AD404CD4170786C800C6CF68 /* PlayScreen_progress-bar-orange.png */,
+				AD404CD5170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png */,
+				AD404CD8170786D700C6CF68 /* PlayScreen_progress-bar-base.png */,
+				AD404CD9170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png */,
+				AD404CCC1707786C00C6CF68 /* PlayScreen_menu-background.png */,
+				AD404CCD1707786C00C6CF68 /* PlayScreen_menu-background@2x.png */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		AD404CD017077D4E00C6CF68 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AD404CD117077D6600C6CF68 /* NSString+GetWorkDone.h */,
+				AD404CD217077D6600C6CF68 /* NSString+GetWorkDone.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		ADB044D81707510D00962758 = {
 			isa = PBXGroup;
 			children = (
+				AD404CD017077D4E00C6CF68 /* Utils */,
+				AD404CC31707772B00C6CF68 /* Ressources */,
 				ADB044EA1707510E00962758 /* getWorkDone */,
 				ADB045111707510E00962758 /* getWorkDoneTests */,
 				ADB044E31707510E00962758 /* Frameworks */,
@@ -315,6 +354,12 @@
 				ADB044FB1707510E00962758 /* Default-568h@2x.png in Resources */,
 				ADB045011707510E00962758 /* RVViewController_iPhone.xib in Resources */,
 				ADB045041707510E00962758 /* RVViewController_iPad.xib in Resources */,
+				AD404CCE1707786C00C6CF68 /* PlayScreen_menu-background.png in Resources */,
+				AD404CCF1707786C00C6CF68 /* PlayScreen_menu-background@2x.png in Resources */,
+				AD404CD6170786C800C6CF68 /* PlayScreen_progress-bar-orange.png in Resources */,
+				AD404CD7170786C800C6CF68 /* PlayScreen_progress-bar-orange@2x.png in Resources */,
+				AD404CDA170786D700C6CF68 /* PlayScreen_progress-bar-base.png in Resources */,
+				AD404CDB170786D700C6CF68 /* PlayScreen_progress-bar-base@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +414,7 @@
 				AD372E9A1707557D00D9AB38 /* RVRdioManager.m in Sources */,
 				AD404CBB170757E000C6CF68 /* RVTrack.m in Sources */,
 				AD404CBF17075B3700C6CF68 /* RVEchonestAPI.m in Sources */,
+				AD404CD317077D6600C6CF68 /* NSString+GetWorkDone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
