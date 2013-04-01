@@ -80,4 +80,128 @@
     STAssertEquals((CGFloat)90, [[result objectAtIndex:0] bpm], nil);
 }
 
+
+/**************************************************************************************************/
+#pragma mark - test isValid
+
+- (void)testiSValidWithNilreturnNO
+{
+    // GIVEN
+    RVTrack *track = nil;
+
+    // WHEN
+    BOOL isValid = [track isValid];
+    
+    // THEN
+    STAssertFalse(isValid, nil);
+}
+
+- (void)testiSValidWithWithMissingArtistNameReturnNO
+{
+    // GIVEN
+    RVTrack *track = [[RVTrack alloc] init];
+    track.title = @"foo";
+    track.trackID = @"t23434";
+    track.iconURL = @"tddzfef";
+    track.duration = 123.2;
+    
+    // WHEN
+    BOOL isValid = [track isValid];
+    
+    // THEN
+    STAssertFalse(isValid, nil);
+}
+
+- (void)testiSValidWithWithMissingtitleReturnNO
+{
+    // GIVEN
+    RVTrack *track = [[RVTrack alloc] init];
+    track.artistName = @"foo";
+    track.trackID = @"t23434";
+    track.iconURL = @"tddzfef";
+    track.duration = 123.2;
+    
+    // WHEN
+    BOOL isValid = [track isValid];
+    
+    // THEN
+    STAssertFalse(isValid, nil);
+}
+
+
+
+- (void)testiSValidWithWithMissingtraCKIDReturnNo
+{
+    // GIVEN
+    RVTrack *track = [[RVTrack alloc] init];
+    track.artistName = @"foo";
+    track.title = @"bar";
+    track.iconURL = @"tddzfef";
+    track.duration = 123.2;
+    
+    // WHEN
+    BOOL isValid = [track isValid];
+    
+    // THEN
+    STAssertFalse(isValid, nil);
+}
+
+
+- (void)testiSValidWithWithMissingIconURLReturnNo
+{
+    // GIVEN
+    RVTrack *track = [[RVTrack alloc] init];
+    track.artistName = @"foo";
+    track.title = @"bar";
+    track.trackID = @"t23434";
+    track.duration = 123.2;
+    
+    // WHEN
+    BOOL isValid = [track isValid];
+    
+    // THEN
+    STAssertFalse(isValid, nil);
+}
+
+
+
+- (void)testiSValidWithWithWrongDuration
+{
+    // GIVEN
+    RVTrack *track = [[RVTrack alloc] init];
+    track.artistName = @"foo";
+    track.title = @"bar";
+    track.trackID = @"t23434";
+    track.iconURL = @"tddzfef";
+    track.duration = -123.2;
+    
+    // WHEN
+    BOOL isValid = [track isValid];
+    
+    // THEN
+    STAssertFalse(isValid, nil);
+}
+
+
+
+- (void)testiSValidWithWithValidDataReturnYES
+{
+    // GIVEN
+    RVTrack *track = [[RVTrack alloc] init];
+    track.artistName = @"foo";
+    track.title = @"bar";
+    track.trackID = @"t23434";
+    track.iconURL = @"tddzfef";
+    track.duration = 123.2;
+    
+    // WHEN
+    BOOL isValid = [track isValid];
+    
+    // THEN
+    STAssertTrue(isValid, nil);
+}
+
+
+
+
 @end
