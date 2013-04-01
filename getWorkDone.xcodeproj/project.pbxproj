@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		961DD8EEE5654737BE60103B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD00BB3E762C434285D2C9C8 /* libPods.a */; };
+		AD00E0B717095B8100D34FF1 /* RVTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00E0B617095B8100D34FF1 /* RVTrackTests.m */; };
 		AD372E86170751E100D9AB38 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD372E85170751E100D9AB38 /* Rdio.framework */; };
 		AD372E881707520B00D9AB38 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD372E871707520B00D9AB38 /* CFNetwork.framework */; };
 		AD372E8A1707521100D9AB38 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD372E891707521100D9AB38 /* SystemConfiguration.framework */; };
@@ -71,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		663558A28DFA44C2B84A3F5B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		AD00E0B517095B8100D34FF1 /* RVTrackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVTrackTests.h; sourceTree = "<group>"; };
+		AD00E0B617095B8100D34FF1 /* RVTrackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVTrackTests.m; sourceTree = "<group>"; };
 		AD372E85170751E100D9AB38 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = "../../Downloads/rdio-ios-1.1/Rdio.framework"; sourceTree = "<group>"; };
 		AD372E871707520B00D9AB38 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AD372E891707521100D9AB38 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -313,6 +316,8 @@
 				AD404D5D1707AC9300C6CF68 /* NSStringAdditionTest.m */,
 				ADB045171707510E00962758 /* getWorkDoneTests.h */,
 				ADB045181707510E00962758 /* getWorkDoneTests.m */,
+				AD00E0B517095B8100D34FF1 /* RVTrackTests.h */,
+				AD00E0B617095B8100D34FF1 /* RVTrackTests.m */,
 				ADB045121707510E00962758 /* Supporting Files */,
 			);
 			path = getWorkDoneTests;
@@ -491,6 +496,7 @@
 			files = (
 				ADB045191707510E00962758 /* getWorkDoneTests.m in Sources */,
 				AD404D5E1707AC9300C6CF68 /* NSStringAdditionTest.m in Sources */,
+				AD00E0B717095B8100D34FF1 /* RVTrackTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

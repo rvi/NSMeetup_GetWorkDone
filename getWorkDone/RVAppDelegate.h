@@ -12,6 +12,9 @@
 
 @interface RVAppDelegate : UIResponder <UIApplicationDelegate>
 
+/**************************************************************************************************/
+#pragma mark - Getters & Setters
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) RVViewController *viewController;

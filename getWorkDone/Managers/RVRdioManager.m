@@ -8,14 +8,19 @@
 
 #import "RVRdioManager.h"
 
-@interface RVRdioManager ()
-
-
-@end
+#define GET_TOP_CHART_KEY @"getTopCharts"
+#define TYPE_KEY @"type"
+#define TRACK_KEY @"track"
+#define COUNT_KEY @"count"
+#define NUMBER_OF_DESIRED_TRACKS @"100"
 
 @implementation RVRdioManager
 
-+ (RVRdioManager *) sharedManager {
+/**************************************************************************************************/
+#pragma mark - Singleton method
+
++ (RVRdioManager *) sharedManager
+{
     static dispatch_once_t _singletonPredicate;
     static RVRdioManager *_singleton = nil;
     
@@ -36,8 +41,10 @@
 
 - (void)getTracksWithDelegate:(id<RDAPIRequestDelegate>)delegate
 {
-    [self.rdio callAPIMethod:@"getTopCharts"
-          withParameters:@{@"type": @"track", @"count":@"100"}
+    // Download 100 hot tracks from Rdio.
+    
+    [self.rdio callAPIMethod:GET_TOP_CHART_KEY
+          withParameters:@{TYPE_KEY : TRACK_KEY, COUNT_KEY : NUMBER_OF_DESIRED_TRACKS}
                 delegate:delegate];
 }
 

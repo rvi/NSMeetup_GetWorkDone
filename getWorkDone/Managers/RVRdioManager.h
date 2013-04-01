@@ -9,8 +9,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Rdio/Rdio.h>
+// Rdio
 
+#import <Rdio/Rdio.h>
 
 @interface RVRdioManager : NSObject
 

@@ -30,9 +30,6 @@
     RVTrack *currentlyPlayed;
 }
 
-/**************************************************************************************************/
-#pragma mark - Getters & Setters
-
 @property (nonatomic, strong) NSMutableArray *tracks;
 @property (nonatomic, strong) RVTrack *currentlyPlayed;
 @property (nonatomic, strong) NSTimer *secondsTimer;
@@ -100,6 +97,7 @@
     // We're in play mode, not in Pause
     [self.playButton setSelected:NO];
     
+    // Timer to refresh the UI
     self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self
                                                        selector:@selector(refreshUITimer:)
                                                        userInfo:nil
@@ -158,6 +156,7 @@
     }
     else
     {
+        // Set a timer that will invocate the refresh UI methods each seconds
         self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                              target:self
                                                            selector:@selector(refreshUITimer:)
@@ -185,7 +184,6 @@
         RVTrack *nextTrack = [self.tracks objectAtIndex:currentIndex];
         self.currentlyPlayed = nextTrack;
     }
-    
 }
 
 - (IBAction)fastTapped:(id)sender
@@ -206,6 +204,7 @@
     NSInteger currentIndex = [self.tracks indexOfObject:self.currentlyPlayed];
     currentIndex += shouldBeFaster ? 1 : -1;
     
+    // If the index is outofBounds, restart from middle of the array.
     if (currentIndex < 0 || currentIndex >= self.tracks.count)
     {
         currentIndex = self.tracks.count / 2;
@@ -230,16 +229,27 @@
             DLog(@"get %d tracks from Rdio",[self.tracks count]);
     }
     
+    [self retrieveBPM];
+}
+
+- (void)rdioRequest:(RDAPIRequest *)request didFailWithError:(NSError *)error
+{
+    DLog(@"failure for request : %@ with error : %@",request,error);
+}
+
+/**************************************************************************************************/
+#pragma mark - API
+
+- (void)retrieveBPM
+{
     [RVEchonestAPI getMoreInfoForTracks:self.tracks
                               succeeded:^(RVTrack *track) {
                                   
-                               
                                   NSArray *sortedTracks = [RVTrack sortTracksByBPMForArray:self.tracks];
                                   self.tracks = [NSMutableArray arrayWithArray:sortedTracks];
-                        
+                                  
                                   if (!self.currentlyPlayed && self.tracks.count > 1)
                                   {
-                                      
                                       self.currentlyPlayed = [self.tracks objectAtIndex:self.tracks.count/2];
                                   }
                                   
@@ -250,13 +260,8 @@
                                      
                                      NSArray *sortedTracks = [RVTrack sortTracksByBPMForArray:self.tracks];
                                      self.tracks = [NSMutableArray arrayWithArray:sortedTracks];
-
+                                     
                                  }];
-}
-
-- (void)rdioRequest:(RDAPIRequest *)request didFailWithError:(NSError *)error
-{
-    DLog(@"failure for request : %@ with error : %@",request,error);
 }
 
 @end

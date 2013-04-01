@@ -27,7 +27,6 @@
 #pragma mark - Actions
 
 - (IBAction)playButtonTapped:(id)sender;
-
 - (IBAction)nextButtonTapped:(id)sender;
 - (IBAction)fastTapped:(id)sender;
 - (IBAction)fasterTapped:(id)sender;
