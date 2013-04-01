@@ -223,7 +223,10 @@
         for (NSDictionary *dict in data)
         {
             RVTrack *track = [RVTrack trackWithDictionnary:dict];
-            [self.tracks addObject:track];
+            if (track)
+            {
+                [self.tracks addObject:track];
+            }
         }
         
             DLog(@"get %d tracks from Rdio",[self.tracks count]);
